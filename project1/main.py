@@ -2,10 +2,10 @@ from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
 def encrypt(text):
-    key = get_random_bytes(32)  # Generate a random 256-bit key
+    key = get_random_bytes(32)  
     cipher = AES.new(key, AES.MODE_CBC)
     
-    # Pad the text to ensure it's a multiple of the block size (16 bytes)
+
     padded_text = text + b' ' * (-len(text) % 16)
     
     encrypted_data = cipher.encrypt(padded_text)
